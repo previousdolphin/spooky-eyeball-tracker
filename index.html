@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spooky Eyeball Tracker — An Ocular Sentinel That Watches Back</title>
-<meta name="description" content="A floating, glossy, bloodshot 3D eyeball rendered in the browser that uses your webcam to find and stare at whoever stands closest to it.">
+<title>Spooky Eyeball Tracker — It's Watching You</title>
+<meta name="description" content="A floating, glossy, bloodshot 3D eyeball rendered live in the browser that uses your webcam to find and stare at whoever stands closest to it.">
 
 <!-- FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,29 +21,20 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- HEADER / NAV START -->
+<!-- HEADER START -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#hero" class="logo-mark" aria-label="Spooky Eyeball Tracker — home">
+    <a href="index.html" class="logo-mark" aria-label="Spooky Eyeball Tracker — home">
       <span class="logo-eye" aria-hidden="true"><span class="logo-pupil"></span></span>
       <span class="logo-text">SPOOKY EYEBALL<br><em>TRACKER</em></span>
     </a>
-    <nav class="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="#about">The Specimen</a></li>
-        <li><a href="#process">How It Watches</a></li>
-        <li><a href="#specs">Datasheet</a></li>
-        <li><a href="#gallery">Field Notes</a></li>
-        <li><a href="#contact" class="nav-cta">Request a Specimen</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
-<!-- HEADER / NAV END -->
+<!-- HEADER END -->
 
 <main id="main">
 
-  <!-- HERO SECTION START -->
+  <!-- HERO / EYE SECTION START -->
   <section class="hero" id="hero" aria-label="Interactive eyeball demonstration">
     <canvas id="eye-canvas" class="eye-canvas" aria-hidden="true"></canvas>
     <div class="hero-scrim" aria-hidden="true"></div>
@@ -86,161 +77,8 @@
       </div>
     </aside>
     <!-- SUBJECT FEED OVERLAY END -->
-
-    <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </section>
-  <!-- HERO SECTION END -->
-
-  <!-- ABOUT / CONCEPT SECTION START -->
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <div class="about-text">
-        <p class="section-label">01 — CATALOGUE ENTRY</p>
-        <h2>The Specimen</h2>
-        <p>Spooky Eyeball Tracker began as a simple question for a haunted attraction client: what if a prop could tell you were there before you noticed it? The answer is this eye — a single, impossibly wet-looking orb that hangs in empty space, its sclera laced with hand-mapped veins, its lower hemisphere sagging into drips as though gravity is still deciding what to do with it.</p>
-        <p>It is not scripted to glance around at random. It is built to look <em>at</em> something — the nearest warm, moving shape in frame — and to hold that look a beat longer than feels comfortable. The result reads less like animation and more like attention.</p>
-        <p>Everything you see is generated at runtime: the vein pattern, the drip geometry, the glossy cornea highlight. No two loads of the page paint the eye identically, the same way no two real eyes are.</p>
-      </div>
-      <div class="about-aside">
-        <div class="aside-card">
-          <p class="aside-label">INTENDED HABITATS</p>
-          <ul>
-            <li>Haunted house entryways &amp; hallway jump-scares</li>
-            <li>Gallery installations &amp; horror-themed exhibits</li>
-            <li>Storefront windows that want to feel watched</li>
-            <li>Streamer overlays and desktop "familiars"</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ABOUT / CONCEPT SECTION END -->
-
-  <!-- HOW IT WORKS / PROCESS SECTION START -->
-  <section class="process" id="process">
-    <div class="container">
-      <p class="section-label">02 — METHOD</p>
-      <h2>How It Watches</h2>
-      <p class="process-intro">There is no face-recognition model buried in this page — no ML weights downloaded, no biometric database. The eye uses a much blunter, older trick: find whatever in the frame is warm, bright and moving, and assume that's the nearest living thing.</p>
-
-      <ol class="process-steps">
-        <li>
-          <span class="step-num">01</span>
-          <h3>Optical Intake</h3>
-          <p>With your permission, the camera stream is captured directly in the browser and never transmitted anywhere. Each frame is downsampled to a tiny working image for speed.</p>
-        </li>
-        <li>
-          <span class="step-num">02</span>
-          <h3>Luminance &amp; Motion Scan</h3>
-          <p>Every pixel is scored for skin-warm color bias and for how much it changed since the last frame. Clusters that are both warm and shifting score highest — a crude but surprisingly effective proxy for "a person."</p>
-        </li>
-        <li>
-          <span class="step-num">03</span>
-          <h3>Proximity Estimate</h3>
-          <p>The size and strength of the winning cluster becomes a rough proximity read — NEAR, MEDIUM, or FAR — displayed live on the telemetry panel beside the eye.</p>
-        </li>
-        <li>
-          <span class="step-num">04</span>
-          <h3>Gaze Lock</h3>
-          <p>That cluster's position is projected into 3D space and the eyeball's rotation is smoothed toward it frame over frame, clamped to a believable ±35° cone, so the stare creeps rather than snaps.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-  <!-- HOW IT WORKS / PROCESS SECTION END -->
-
-  <!-- SPEC SHEET SECTION START -->
-  <section class="specs" id="specs">
-    <div class="container">
-      <p class="section-label">03 — DATASHEET</p>
-      <h2>Specimen Datasheet</h2>
-      <div class="specs-grid">
-        <article class="spec-card">
-          <p class="spec-key">SCLERA MATERIAL</p>
-          <p class="spec-value">Procedural membrane, clearcoat 1.0, roughness 0.28, runtime-generated radial vein mapping</p>
-        </article>
-        <article class="spec-card">
-          <p class="spec-key">GEOMETRY</p>
-          <p class="spec-value">96×96 segment sphere; lower hemisphere displaced into 6–8 asymmetric drip protrusions</p>
-        </article>
-        <article class="spec-card">
-          <p class="spec-key">IRIS &amp; PUPIL</p>
-          <p class="spec-value">Bloodshot crimson fiber pattern, glossy corneal bulge with fresnel-style highlight</p>
-        </article>
-        <article class="spec-card">
-          <p class="spec-key">TRACKING METHOD</p>
-          <p class="spec-value">Local luminance + motion centroid, 2D→3D projection, clamped ±35° gaze cone, exponential smoothing</p>
-        </article>
-        <article class="spec-card">
-          <p class="spec-key">ENVIRONMENT</p>
-          <p class="spec-value">Dust-mote particle field, warm key + cool rim lighting, exponential fog matched to void</p>
-        </article>
-        <article class="spec-card">
-          <p class="spec-key">RESPONSE LATENCY</p>
-          <p class="spec-value">~90ms frame-to-gaze, interpolated so the eye never jumps, only arrives</p>
-        </article>
-      </div>
-    </div>
-  </section>
-  <!-- SPEC SHEET SECTION END -->
-
-  <!-- GALLERY / FIELD NOTES SECTION START -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <p class="section-label">04 — FIELD NOTES</p>
-      <h2>Observed In The Wild</h2>
-      <div class="gallery-grid">
-        <figure>
-          <!-- IMAGE PLACEHOLDER: swap with real production photo of the drip geometry render -->
-          <img src="assets/img/photo1.jpg" alt="Render of the eyeball's drip geometry mid-formation, glossy protrusions hanging from the lower hemisphere">
-          <figcaption>Fig. 1 — Drip geometry mid-formation</figcaption>
-        </figure>
-        <figure>
-          <!-- IMAGE PLACEHOLDER: swap with real production photo of the vein texture pass -->
-          <img src="assets/img/photo2.jpg" alt="Close-up of the hand-mapped vein texture under warm studio light">
-          <figcaption>Fig. 2 — Vein mapping pass under studio light</figcaption>
-        </figure>
-        <figure>
-          <!-- IMAGE PLACEHOLDER: swap with real production photo of the specimen mounted for exhibit -->
-          <img src="assets/img/photo3.jpg" alt="The eyeball specimen suspended for an exhibit preview in a darkened room">
-          <figcaption>Fig. 3 — Specimen mounted for exhibit preview</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-  <!-- GALLERY / FIELD NOTES SECTION END -->
-
-  <!-- CONTACT / COMMISSION FORM SECTION START -->
-  <section class="contact" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-intro">
-        <p class="section-label">05 — COMMISSION</p>
-        <h2>Request A Specimen</h2>
-        <p>Built for haunted attractions, galleries, storefront windows, and anyone who wants their lobby to feel watched. Tell us where it's going and what it should be looking for, and we'll follow up.</p>
-      </div>
-
-      <form class="contact-form" action="https://yourveryownweb.site/f/passbyhyif35kfgs" method="POST">
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="message">Where is this going, and what should it watch for?</label>
-          <textarea id="message" name="message" rows="5" required placeholder="A haunted hallway, a gallery wall, a shop window at midnight…"></textarea>
-        </div>
-
-        <!-- Spam trap, hidden from humans -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-        <button type="submit" class="btn-primary">SEND INQUIRY</button>
-      </form>
-    </div>
-  </section>
-  <!-- CONTACT / COMMISSION FORM SECTION END -->
+  <!-- HERO / EYE SECTION END -->
 
 </main>
 
@@ -251,15 +89,6 @@
       <span class="logo-eye small" aria-hidden="true"><span class="logo-pupil"></span></span>
       <span>SPOOKY EYEBALL TRACKER</span>
     </div>
-    <nav aria-label="Footer">
-      <ul>
-        <li><a href="#about">The Specimen</a></li>
-        <li><a href="#process">How It Watches</a></li>
-        <li><a href="#specs">Datasheet</a></li>
-        <li><a href="#gallery">Field Notes</a></li>
-        <li><a href="#contact">Request a Specimen</a></li>
-      </ul>
-    </nav>
   </div>
   <div class="container">
     <p class="yvow-credit">Built with help from <a href="https://yourveryownweb.site" rel="noopener">YourVeryOwnWeb.site</a></p>
